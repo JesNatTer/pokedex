@@ -3,6 +3,7 @@ let baseurl = "https://pokeapi.co/api/v2/pokemon/?limit=48&offset=0"
 let modalsprite = document.querySelector('.pokeimg');
 
 function getPokemonList(url){
+  window.scrollTo(0,0)
   fetch(url)
   .then(response => response.json())
   .then(data => {
