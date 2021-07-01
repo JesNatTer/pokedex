@@ -28,7 +28,6 @@
   }
   
   .content .pokename{
-    text-decoration: underline;
     font-size: 30px;
   }
 
@@ -51,19 +50,22 @@ background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 50%, rgba(255,0,0,0.
     color:black;
   }
   
-  .content{
-    height:550px;
-    width:400px;
-    border-radius:10px;
-    display:grid;
-    grid-template-rows:150px 30px 1fr;
-    place-items:center;
-    text-align:center;
-    place-self:center;
+  .content {
+    height: 550px;
+    width: 400px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 150px 30px 1fr;
+    place-items: center;
+    text-align: center;
+    overflow: hidden;
+    border: 8px solid #222;
+    place-self: center;
     background: rgb(42,42,42);
-background: linear-gradient(0deg, rgba(42,42,42,1) 0%, rgba(42,42,42,1) 6%, rgba(255,255,255,1) 6%, rgba(255,255,255,1) 6%);
-
-  }
+    background: linear-gradient(
+0deg
+, rgba(42,42,42,1) 0%, rgba(42,42,42,1) 6%, rgba(255,255,255,1) 6%, rgba(255,255,255,1) 6%);
+}
   
   .pokemon-list-container{
     position:relative;
@@ -106,27 +108,29 @@ background: linear-gradient(0deg, rgba(42,42,42,1) 0%, rgba(42,42,42,1) 6%, rgba
   }
   
   .pokeimg{
-    width:100px;
-    height:100px;
+    width:120px;
+    height:120px;
     overflow:hidden;
     display:grid;
     place-items:center;
   }
   
   .pokeimg img{
-    width:100px;
+    width:120px;
   }
   
-  .pokestats{
-    grid-row:3;
-    width:100%;
-    height:100%;
-    padding:10%;
-    margin-top:50px;
-    display:grid;
+  .pokestats {
+    grid-row: 3;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    margin-top: 31px;
+    border-top: 8px solid #222;
+    background: red;
+    display: grid;
     grid-template-rows: 35% 35% 25%;
     grid-template-columns: 50% 50%;
-  }
+}
   
   .pokestats div, .pokestats div span, .pokename{
     height:auto;
@@ -140,3 +144,27 @@ background: linear-gradient(0deg, rgba(42,42,42,1) 0%, rgba(42,42,42,1) 6%, rgba
       width: 100%;
       margin-top: -30;
   }
+
+  .pokestats div span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pokestats div span .descspan {
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #222;
+    color: white;
+    margin: 5px;
+    font-size: 17px;
+    word-wrap: break-word;
+}
+
+  .pokename .descspan {
+    background-color: #222;
+    color: white;
+    padding: 1px 8px;
+    border-radius: 12px;
+    font-family: 'Suez One';
+}

@@ -33,20 +33,41 @@ function getPokemonInfo(url){
     let types = data.types
     let typecont = document.querySelector('.type')
     typecont.innerHTML = innerHTML = ``
-    let abilitycont = document.querySelector('.abilities')
+    let abilitycont = document.querySelector('.abilities');
     abilitycont.innerHTML = ``
     types.forEach(t => {
-      typecont.innerHTML +=`|${t.type.name}|  `; 
+      typecont.innerHTML +=`<span class='descspan'>${t.type.name}</span> `; 
     })
-    document.querySelector('.pokename').innerHTML =`${data.id} : ${data.species.name}`; 
+    let colorlist= {
+      "grass":'#68f60a',
+      "fire":'#f67e0d',
+      "water":'#0a79be',
+      "normal":'#aca974',
+      "flying":'#5eb9b4',
+      "bug":'#bddd6e',
+      "poison":'#a819d7',
+      "electric":'#fffa25',
+      "ground":'#bfac22',
+      "fighting":'#e8121a',
+      "psychic":'#f55792',
+      "rock":'#786b3f',
+      "ice":'#1a94a3',
+      "ghost":'#bd98cb',
+      "dragon":'#8b56fe',
+      "dark":'#504f4f',
+      "steel":'#7b8e8a',
+      "fairy":'#ffa0c2',
+    };
+    document.querySelector('.content').style.background = colorlist[data.types[0].type.name]
+    document.querySelector('.pokename').innerHTML =`${data.id} : <span class='descspan'>${data.species.name}</span>`; 
     document.querySelector('#modal').classList.toggle('active');
     modalsprite.innerHTML = `<img src=${data.sprites.other["official-artwork"].front_default}>`
-    document.querySelector('.baseexp').innerHTML =`${data.base_experience}`;
-    document.querySelector('.height').innerHTML =`${data.height}`;
-    document.querySelector('.weight').innerHTML =`${data.weight}`;
+    document.querySelector('.baseexp').innerHTML =`<span class='descspan'>${data.base_experience}</span>`;
+    document.querySelector('.height').innerHTML =`<span class='descspan'>${data.height}</span>`;
+    document.querySelector('.weight').innerHTML =`<span class='descspan'>${data.weight}</span>`;
     let abilities = data.abilities
     abilities.forEach(a => {
-      abilitycont.innerHTML += `|${a.ability.name}|  `
+      abilitycont.innerHTML += `<span class='descspan'>${a.ability.name}</span>`
     })
   })
 }
