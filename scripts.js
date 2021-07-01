@@ -1,7 +1,6 @@
 let baseurl = "https://pokeapi.co/api/v2/pokemon/?limit=48&offset=0"
 
 let modalsprite = document.querySelector('.pokeimg');
-let thing = document.querySelector('.content')
 
 function getPokemonList(url){
   fetch(url)
@@ -16,8 +15,7 @@ function getPokemonList(url){
     pokemon.forEach(btn => {
         container.innerHTML += `<button class='pokebutton' onclick="getPokemonInfo('${btn.url}')"> ${btn.name}</button>`;
     })
-    container2.innerHTML += `<button onclick="getPokemonList('${data.previous}')"><</button>`
-    container2.innerHTML += `<button onclick="getPokemonList('${data.next}')">></button>`
+    container2.innerHTML = `<i onclick="getPokemonList('${data.previous}')" class="fas fa-arrow-circle-left"></i><i onclick="getPokemonList('${data.next}')" class="fas fa-arrow-circle-right"></i>`
 })
 }
 
@@ -29,27 +27,29 @@ function getPokemonInfo(url){
   .then(response => response.json())
   .then(data => {
     console.log(data)
-    document.querySelector('#modal').classList.toggle('active');thing.innerHTML= `<img src='https://i.pinimg.com/originals/c2/3e/bc/c23ebc7189be56ba63b5b356692a2c9e.jpg'><br>Who the hell is looking at my code? `
-    //modalsprite.innerHML = `<img src=${data.sprites.other["official-artwork"].front_default}>`
-    //document.querySeector('.type').innerHTML =`${data.types[0].type.name}`; 
-    //dcument.querySelector('.baseexp').inerHTML =`${data.base_experience}`;
-    //document.querySelector('.heigt').innerHTML =`${data.height}`;
-    //document.querySelector('.weight').innerTML =`${data.weight}`;
-    //document.querySelector('.bilities').innerHTM = `${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}`
+    // types
+    // abilities
+    let types = data.types
+    let typecont = document.querySelector('.type')
+    typecont.innerHTML = innerHTML = ``
+    let abilitycont = document.querySelector('.abilities')
+    abilitycont.innerHTML = ``
+    types.forEach(t => {
+      typecont.innerHTML +=`|${t.type.name}|  `; 
+    })
+    document.querySelector('.pokename').innerHTML =`${data.id} : ${data.species.name}`; 
+    document.querySelector('#modal').classList.toggle('active');
+    modalsprite.innerHTML = `<img src=${data.sprites.other["official-artwork"].front_default}>`
+    document.querySelector('.baseexp').innerHTML =`${data.base_experience}`;
+    document.querySelector('.height').innerHTML =`${data.height}`;
+    document.querySelector('.weight').innerHTML =`${data.weight}`;
+    let abilities = data.abilities
+    abilities.forEach(a => {
+      abilitycont.innerHTML += `|${a.ability.name}|  `
+    })
   })
 }
 
 function closemodal(){
   document.querySelector('#modal').classList.remove('active')
 }
-
-/*
-document.querySelector('.pokename').innerHTML =`${data.id} : ${data.species.name}`; document.querySelector('#modal').classList.toggle('active');
-    modalsprite.innerHTML = `<img src=${data.sprites.other["official-artwork"].front_default}>`
-    document.querySelector('.type').innerHTML =`${data.types[0].type.name}`; 
-    document.querySelector('.baseexp').innerHTML =`${data.base_experience}`;
-    document.querySelector('.height').innerHTML =`${data.height}`;
-    document.querySelector('.weight').innerHTML =`${data.weight}`;
-    document.querySelector('.abilities').innerHTML = `${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}`
-
-*/
