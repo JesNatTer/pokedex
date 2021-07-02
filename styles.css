@@ -186,9 +186,12 @@ background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 50%, rgba(255,0,0,0.
     font-family: 'Suez One';
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:450px) {
   body{
-    background:url(./pokedexmobile.jpg)
+    background:url(./pokedexmobile.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
   
   .heading{
