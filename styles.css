@@ -11,7 +11,7 @@
     display:grid; 
     position:relative;
     z-index:0;
-    
+    background: #222;
   }
   
   .the-video{
@@ -34,6 +34,7 @@
     margin:20px 0;
     font-family: 'Suez One';
     font-weight: 300;
+    text-shadow: 3px 4px black;
   }
   
   .content .pokename{
@@ -154,7 +155,7 @@ background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 50%, rgba(255,0,0,0.
     border-top: 8px solid #222;
     background: red;
     display: grid;
-    grid-template-rows: 28% 28% 25%;
+    grid-template-rows: 35% 28% 25%;
     grid-template-columns: 50% 50%;
 }
   
