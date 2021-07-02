@@ -39,9 +39,9 @@ function getPokemonInfo(url){
       typecont.innerHTML +=`<span class='descspan'>${t.type.name}</span> `; 
     })
     let colorlist= {
-      "grass":'#68f60a',
+      "grass":'#90ff46',
       "fire":'#f67e0d',
-      "water":'#0a79be',
+      "water":'#2887c3',
       "normal":'#aca974',
       "flying":'#5eb9b4',
       "bug":'#bddd6e',
