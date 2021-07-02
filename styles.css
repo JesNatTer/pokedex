@@ -145,7 +145,7 @@ background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 50%, rgba(255,0,0,0.
     border-top: 8px solid #222;
     background: red;
     display: grid;
-    grid-template-rows: 35% 35% 25%;
+    grid-template-rows: 28% 28% 25%;
     grid-template-columns: 50% 50%;
 }
   
